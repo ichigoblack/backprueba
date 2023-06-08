@@ -1,0 +1,32 @@
+package com.prueba.demo.models.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.prueba.demo.models.entity.Pelicula;
+import com.prueba.demo.models.repository.PeliculaRepository;
+import com.prueba.demo.models.services.PeliculaService;
+
+@Service
+public class PeliculaDaoImpl implements PeliculaService{
+
+	@Autowired
+	PeliculaRepository pelirepo;
+	
+	@Override
+	@Transactional
+	public Pelicula registrarPelicula(Pelicula peli) {
+		return pelirepo.save(peli);
+	}
+
+	@Override
+	@Transactional
+	public List<Pelicula> listarPeliculas() {
+		return (List<Pelicula>) pelirepo.findAll();
+	}
+	
+}

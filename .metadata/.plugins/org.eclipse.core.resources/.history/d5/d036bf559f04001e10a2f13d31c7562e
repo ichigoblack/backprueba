@@ -1,0 +1,9 @@
+package com.prueba.demo.models.services;
+
+import com.prueba.demo.models.entity.Pelicula;
+
+public interface PeliculaService {
+
+	public Pelicula registrarPelicula(Pelicula peli);
+	
+}

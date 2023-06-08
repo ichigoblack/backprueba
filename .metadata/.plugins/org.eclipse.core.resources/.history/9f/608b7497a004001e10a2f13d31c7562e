@@ -1,0 +1,5 @@
+package com.prueba.demo.models.repository;
+
+public interface SalaCineRepository {
+
+}

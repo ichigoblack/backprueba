@@ -1,0 +1,14 @@
+package com.prueba.demo.models.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class peliculacontrollers {
+
+	@GetMapping("/mensaje")
+    public String obtenerMensaje() {
+        return "Mensaje impreso en la consola.";
+    }
+	
+}

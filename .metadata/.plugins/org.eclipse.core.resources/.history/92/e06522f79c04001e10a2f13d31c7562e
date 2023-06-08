@@ -1,0 +1,31 @@
+package com.prueba.demo.models.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prueba.demo.models.entity.pelicula;
+import com.prueba.demo.models.services.peliculaservice;
+
+@RestController
+public class peliculacontrollers {
+
+	@Autowired
+	peliculaservice peliservice;
+	
+	@GetMapping("/mensaje")
+    public String obtenerMensaje() {
+        return "Mensaje impreso en la consola.";
+    }
+	
+	@PostMapping("/crearPelicula")
+	public ResponseEntity<pelicula> crearUsuario(@RequestBody pelicula peli) {
+	    peli = peliservice.registrarPelicula(peli);
+	    return new ResponseEntity<>(peli, HttpStatus.CREATED);
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.prueba.demo.models.entity;
+
+public class PeliculaSalaCine {
+
+}

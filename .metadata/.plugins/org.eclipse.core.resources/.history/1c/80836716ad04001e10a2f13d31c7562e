@@ -1,0 +1,41 @@
+package com.prueba.demo.models.impl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.prueba.demo.models.entity.PeliculaSalaCine;
+import com.prueba.demo.models.repository.PeliculaSalaCineRepository;
+import com.prueba.demo.models.services.PeliculaSalaCineService;
+
+@Service
+public class PeliculaSalaCineDaoImpl implements PeliculaSalaCineService{
+
+	@Autowired
+	PeliculaSalaCineRepository peliculaSalaCineRepository;
+	
+	@Override
+	@Transactional
+	public PeliculaSalaCine registrarPeliculaSalaCine(PeliculaSalaCine psc) {
+		return peliculaSalaCineRepository.save(psc);
+	}
+
+	@Override
+	public List<PeliculaSalaCine> listarPeliculaSalaCine() {
+		return (List<PeliculaSalaCine>) peliculaSalaCineRepository.findAll();
+	}
+
+	@Override
+	public List<PeliculaSalaCine> buscarPorPeliculaSala(String nombre, Integer idsalacine) {
+		return peliculaSalaCineRepository.buscarPorPeliculaSala(nombre, idsalacine);
+	}
+
+	@Override
+	public List<PeliculaSalaCine> buscarPorFecha(String nombre) {
+		return peliculaSalaCineRepository.buscarPorFecha(nombre);
+	}
+	
+}

@@ -1,0 +1,19 @@
+package com.prueba.demo.models.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import com.prueba.demo.models.entity.PeliculaSalaCine;
+
+public interface PeliculaSalaCineRepository extends CrudRepository<PeliculaSalaCine,Integer>{
+	
+	 @Query("SELECT psc FROM PeliculaSalaCine psc WHERE psc.pelicula.nombre = :nombre and psc.salaCine.idsalacine = :idsalacine")
+	 List<PeliculaSalaCine> buscarPorPeliculaSala(@Param("nombre") String pelicula,@Param("idsalacine") Integer idsalacine);
+	
+	 @Query("SELECT psc FROM PeliculaSalaCine psc WHERE psc.fechaPublicacion = :fecha")
+	 List<PeliculaSalaCine> buscarPorFecha(@Param("fecha") String fecha);
+	 
+}

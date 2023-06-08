@@ -1,0 +1,14 @@
+package com.prueba.demo.models.repository;
+
+import com.prueba.demo.models.entity.Pelicula;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.*;
+import org.springframework.data.repository.query.Param;
+
+public interface PeliculaRepository extends CrudRepository<Pelicula,Integer>{
+	
+	@Query("Update Pelicula p SET p.estado = 0 WHERE p.idpelicula = :idpelicula")
+	void eliminarPelicula(@Param("idpelicula") Integer idpelicula);
+	
+}

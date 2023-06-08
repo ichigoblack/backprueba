@@ -1,0 +1,5 @@
+package com.prueba.demo.models.services;
+
+public interface PeliculaSalaCineService {
+
+}

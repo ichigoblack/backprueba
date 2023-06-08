@@ -1,0 +1,21 @@
+package com.prueba.demo.models.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.prueba.demo.models.entity.pelicula;
+import com.prueba.demo.models.repository.pelicularepository;
+import com.prueba.demo.models.services.peliculaservice;
+
+@Service
+public class peliculaimpl implements peliculaservice{
+
+	@Autowired
+	pelicularepository pelirepo;
+	
+	@Override
+	public void registrarPelicula(pelicula peli) {
+		pelirepo.save(peli);
+	}
+	
+}

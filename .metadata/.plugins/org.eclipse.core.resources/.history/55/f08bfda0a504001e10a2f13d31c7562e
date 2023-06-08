@@ -1,0 +1,27 @@
+package com.prueba.demo.models.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.prueba.demo.models.entity.PeliculaSalaCine;
+import com.prueba.demo.models.services.PeliculaSalaCineService;
+
+public class PeliculaSalaCineControllers {
+
+	private  PeliculaSalaCineService peliculaSalaCineService;
+
+    @Autowired
+    public PeliculaSalaCineControllers(PeliculaSalaCineService pscs) {
+        this.peliculaSalaCineService = pscs;
+    }
+    
+    @PostMapping("/crearPeliculaSalaCine")
+	public ResponseEntity<PeliculaSalaCine> crearPelicula(@RequestBody PeliculaSalaCine psc) {
+	    psc = peliculaSalaCineService.registrarPeliculaSalaCine(psc);
+	    return new ResponseEntity<>(psc, HttpStatus.CREATED);
+	}
+    
+}

@@ -1,0 +1,26 @@
+package com.prueba.demo.models.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.prueba.demo.models.entity.SalaCine;
+import com.prueba.demo.models.repository.SalaCineRepository;
+import com.prueba.demo.models.services.SalaCineService;
+
+public class SalaCineDaoImpl implements SalaCineService{
+
+	@Autowired
+	SalaCineRepository salaCineRepository;
+	
+	@Override
+	public SalaCine registrarPelicula(SalaCine sc) {
+		return salaCineRepository.save(sc);
+	}
+
+	@Override
+	public List<SalaCine> listarSalas() {
+		return (List<SalaCine>) salaCineRepository.findAll();
+	}
+
+}

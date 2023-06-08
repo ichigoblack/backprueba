@@ -1,0 +1,9 @@
+package com.prueba.demo.models.repository;
+
+
+import com.prueba.demo.models.entity.pelicula;
+import org.springframework.data.repository.*;
+
+public interface pelicularepository extends CrudRepository<pelicula,Integer>{
+	
+}
